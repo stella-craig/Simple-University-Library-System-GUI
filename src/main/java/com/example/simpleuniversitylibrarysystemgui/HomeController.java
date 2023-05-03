@@ -1,5 +1,6 @@
 package com.example.simpleuniversitylibrarysystemgui;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -101,6 +102,8 @@ public class HomeController {
         stage.show();
     }
 
-    protected void onQuitButtonClick() throws IOException {
+    @FXML
+    protected void onQuitButtonClick() {
+        Platform.exit();
     }
 }
