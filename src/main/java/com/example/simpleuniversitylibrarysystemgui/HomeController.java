@@ -1,4 +1,5 @@
 package com.example.simpleuniversitylibrarysystemgui;
+import libFunctions.*;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
