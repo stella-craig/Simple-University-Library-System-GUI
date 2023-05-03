@@ -6,14 +6,14 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
    <children>
       <Button layoutX="245.0" layoutY="14.0" mnemonicParsing="false" onAction="#onNewMembershipButtonClick" text="New Membership" textAlignment="CENTER" />
-      <Button layoutX="252.0" layoutY="51.0" mnemonicParsing="false" text="New Collection" />
-      <Button layoutX="235.0" layoutY="88.0" mnemonicParsing="false" text="Remove Membership" />
-      <Button layoutX="213.0" layoutY="128.0" mnemonicParsing="false" text="Remove Item From Collection" />
-      <Button layoutX="252.0" layoutY="164.0" mnemonicParsing="false" text="New Employee" />
-      <Button layoutX="259.0" layoutY="200.0" mnemonicParsing="false" text="Borrow Item" />
-      <Button layoutX="260.0" layoutY="241.0" mnemonicParsing="false" text="Return Item" />
-      <Button layoutX="248.0" layoutY="280.0" mnemonicParsing="false" text="Check Overdues" />
-      <Button layoutX="248.0" layoutY="314.0" mnemonicParsing="false" text="Edit Information" />
-      <Button layoutX="280.0" layoutY="350.0" mnemonicParsing="false" text="Quit" />
+      <Button layoutX="252.0" layoutY="51.0" mnemonicParsing="false" onAction="#onNewCollectionButtonClick" text="New Collection" />
+      <Button layoutX="235.0" layoutY="88.0" mnemonicParsing="false" onAction="#onRemoveMembershipButtonClick" text="Remove Membership" />
+      <Button layoutX="213.0" layoutY="128.0" mnemonicParsing="false" onAction="#onRemoveItemButtonClick" text="Remove Item From Collection" />
+      <Button layoutX="252.0" layoutY="164.0" mnemonicParsing="false" onAction="#onNewEmployeeButtonClick" text="New Employee" />
+      <Button layoutX="259.0" layoutY="200.0" mnemonicParsing="false" onAction="#onBorrowItemButtonClick" text="Borrow Item" />
+      <Button layoutX="260.0" layoutY="241.0" mnemonicParsing="false" onAction="#onReturnItemButtonClick" text="Return Item" />
+      <Button layoutX="248.0" layoutY="280.0" mnemonicParsing="false" onAction="#onCheckOverduesButtonClick" text="Check Overdues" />
+      <Button layoutX="248.0" layoutY="314.0" mnemonicParsing="false" onAction="#onEditInformationButtonClick" text="Edit Information" />
+      <Button layoutX="280.0" layoutY="350.0" mnemonicParsing="false" onAction="#onQuitButtonClick" text="Quit" />
    </children>
 </AnchorPane>
