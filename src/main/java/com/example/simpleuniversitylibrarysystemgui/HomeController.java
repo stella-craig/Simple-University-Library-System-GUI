@@ -1,6 +1,5 @@
 package com.example.simpleuniversitylibrarysystemgui;
 
-import com.sun.glass.ui.ClipboardAssistance;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
