@@ -11,4 +11,10 @@ public class HelloController {
     protected void onHelloButtonClick() {
         welcomeText.setText("This is very stupid!!!!");
     }
+
+    @FXML
+    protected void onNewMembershipButtonClick() {
+        welcomeText.setText("This is very stupid!!!!");
+    }
+
 }
