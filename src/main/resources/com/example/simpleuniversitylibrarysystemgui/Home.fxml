@@ -7,5 +7,13 @@
    <children>
       <Button layoutX="245.0" layoutY="14.0" mnemonicParsing="false" onAction="#onNewMembershipButtonClick" text="New Membership" textAlignment="CENTER" />
       <Button layoutX="252.0" layoutY="51.0" mnemonicParsing="false" onAction="#onNewCollectionButtonClick" text="New Collection" />
+      <Button layoutX="235.0" layoutY="86.0" mnemonicParsing="false" onAction="#onRemoveMembershipButtonClick" text="Remove Membership" />
+      <Button layoutX="259.0" layoutY="200.0" mnemonicParsing="false" onAction="#onBorrowItemButtonClick" text="Borrow Item" />
+      <Button layoutX="252.0" layoutY="161.0" mnemonicParsing="false" onAction="#onNewEmployeeButtonClick" text="New Employee" />
+      <Button layoutX="213.0" layoutY="125.0" mnemonicParsing="false" onAction="#onRemoveItemButtonClick" text="Remove Item From Collection" />
+      <Button layoutX="248.0" layoutY="316.0" mnemonicParsing="false" onAction="#onEditInformationButtonClick" text="Edit Information" />
+      <Button layoutX="248.0" layoutY="277.0" mnemonicParsing="false" onAction="#onCheckOverduesButtonClick" text="Check Overdues" />
+      <Button layoutX="260.0" layoutY="239.0" mnemonicParsing="false" onAction="#onReturnItemButtonClick" text="Return Item" />
+      <Button layoutX="280.0" layoutY="349.0" mnemonicParsing="false" onAction="#onQuitButtonClick" text="Quit" />
    </children>
 </AnchorPane>
