@@ -16,7 +16,7 @@ public class HomeController {
     @FXML
     protected void onNewMembershipButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newMember.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         Stage stage = new Stage();
         stage.setTitle("New-Member");
         stage.setScene(scene);
