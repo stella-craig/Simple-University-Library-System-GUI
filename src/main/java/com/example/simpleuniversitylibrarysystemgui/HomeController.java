@@ -104,6 +104,6 @@ public class HomeController {
 
     @FXML
     protected void onQuitButtonClick() {
-        Platform.exit();
+        //put code here
     }
 }
