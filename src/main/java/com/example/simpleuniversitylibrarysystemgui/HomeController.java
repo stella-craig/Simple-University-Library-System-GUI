@@ -1,5 +1,5 @@
 package com.example.simpleuniversitylibrarysystemgui;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import libFunctions.*;
 
 import javafx.application.Platform;
@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.*;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -27,7 +26,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onNewCollectionButtonClick() throws IOException {
         //This opens the new collection window
@@ -38,7 +36,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onRemoveMembershipButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("removeMember.fxml"));
@@ -48,7 +45,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onRemoveItemButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("removeItem.fxml"));
@@ -58,7 +54,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onNewEmployeeButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("newEmployee.fxml"));
@@ -68,7 +63,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onBorrowItemButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("checkoutItem.fxml"));
@@ -78,7 +72,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onReturnItemButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("returnItem.fxml"));
@@ -88,7 +81,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onCheckOverduesButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("checkOverdue.fxml"));
@@ -98,7 +90,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onEditInformationButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("editInformation.fxml"));
@@ -108,7 +99,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onQuitButtonClick() {
         Platform.exit();
@@ -117,13 +107,88 @@ public class HomeController {
 
 
     //The following code is for the newMember.fxml window
-    @FXML
-    TextField nameBox;
+    @FXML    TextField nameBox;
+    @FXML    TextField emailBox;
+    @FXML    TextField SSNBox;
+    @FXML    TextArea addressBox;
+    @FXML    DatePicker DoBBox;
+    @FXML    Button newMemberCancel;
+    @FXML    Button newMemberSubmit;
+    @FXML    Label newMemberErrorMessage;
+    @FXML    CheckBox CBStudent;
+    @FXML    CheckBox CBProfessor;
+    @FXML    CheckBox CBExternal;
+
+
     @FXML
     protected void onNewMemberSubmit() {
-        String s=nameBox.getText();
-        System.out.println(s);
-        Platform.exit();
+
+        String name=nameBox.getText();
+        String email=emailBox.getText();
+        String ssn=SSNBox.getText();
+        String address=addressBox.getText();
+        String dob= String.valueOf(DoBBox.getValue());
+
+        //Check if name is empty
+        if (name == null || name.length() == 0)
+        {
+            //System.out.println("Error: Empty name.");
+            newMemberErrorMessage.setText("Error: Empty name.");
+            return;
+        }
+        //check if email is empty
+        if (email == null || email.length() == 0)
+        {
+            //System.out.println("Error: Empty email.");
+            newMemberErrorMessage.setText("Error: Empty email.");
+            return;
+        }
+        //check if ssn is empty
+        if (ssn == null || ssn.length() == 0)
+        {
+            //System.out.println("Error: Empty SSN.");
+            newMemberErrorMessage.setText("Error: Empty SSN.");
+            return;
+        }
+        //check if address is empty
+        if (address == null || address.length() == 0)
+        {
+            //System.out.println("Error: Empty Address.");
+            newMemberErrorMessage.setText("Error: Empty Address.");
+            return;
+        }
+        //check if dob is empty
+        if (dob == null || dob.length() == 0)
+        {
+            //System.out.println("Error: Empty DoB.");
+            newMemberErrorMessage.setText("Error: Empty DoB.");
+            return;
+        }
+
+        //check if none of the membership types have been selected
+        if(!CBStudent.isSelected() && !CBProfessor.isSelected() && !CBExternal.isSelected())
+        {
+            newMemberErrorMessage.setText("Please select the membership type.");
+            return;
+        }
+
+        //check if multiple of the membership types have been selected
+        if((CBStudent.isSelected() && CBProfessor.isSelected()) ||
+                (CBStudent.isSelected() && CBExternal.isSelected()) ||
+                (CBProfessor.isSelected() && CBExternal.isSelected()))
+        {
+            newMemberErrorMessage.setText("Please only select one membership type.");
+            return;
+        }
+
+        //Close window.
+        Stage stage = (Stage) newMemberSubmit.getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    protected void onNewMemberCancel() {
+        Stage stage = (Stage) newMemberCancel.getScene().getWindow();
+        stage.close();
     }
 
 }
