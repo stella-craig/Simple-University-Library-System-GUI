@@ -164,14 +164,12 @@ public class HomeController {
             newMemberErrorMessage.setText("Error: Empty DoB.");
             return;
         }
-
         //check if none of the membership types have been selected
         if(!CBStudent.isSelected() && !CBProfessor.isSelected() && !CBExternal.isSelected())
         {
             newMemberErrorMessage.setText("Please select the membership type.");
             return;
         }
-
         //check if multiple of the membership types have been selected
         if((CBStudent.isSelected() && CBProfessor.isSelected()) ||
                 (CBStudent.isSelected() && CBExternal.isSelected()) ||
