@@ -1,10 +1,12 @@
 package com.example.simpleuniversitylibrarysystemgui;
+import javafx.scene.control.TextField;
 import libFunctions.*;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -13,8 +15,11 @@ import javafx.stage.Stage;
 
 public class HomeController {
 
+
+    //This section of code just makes all the buttons on the main page work.
     @FXML
     protected void onNewMembershipButtonClick() throws IOException {
+        //This open the new membership window
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("newMember.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         Stage stage = new Stage();
@@ -25,6 +30,7 @@ public class HomeController {
 
     @FXML
     protected void onNewCollectionButtonClick() throws IOException {
+        //This opens the new collection window
         FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("newItem.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         Stage stage = new Stage();
@@ -107,4 +113,17 @@ public class HomeController {
     protected void onQuitButtonClick() {
         Platform.exit();
     }
+
+
+
+    //The following code is for the newMember.fxml window
+    @FXML
+    TextField nameBox;
+    @FXML
+    protected void onNewMemberSubmit() {
+        String s=nameBox.getText();
+        System.out.println(s);
+        Platform.exit();
+    }
+
 }

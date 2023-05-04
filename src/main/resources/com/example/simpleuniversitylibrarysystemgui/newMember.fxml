@@ -11,12 +11,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
    <children>
-      <TextField layoutX="156.0" layoutY="35.0" prefHeight="26.0" prefWidth="386.0" />
-      <TextField layoutX="156.0" layoutY="194.0" prefHeight="26.0" prefWidth="386.0" />
-      <TextField layoutX="156.0" layoutY="231.0" prefHeight="26.0" prefWidth="386.0" />
-      <TextArea layoutX="156.0" layoutY="71.0" prefHeight="110.0" prefWidth="386.0" />
-      <DatePicker layoutX="156.0" layoutY="267.0" prefHeight="26.0" prefWidth="386.0" />
-      <Button layoutX="273.0" layoutY="346.0" mnemonicParsing="false" text="Submit" />
+      <TextField fx:id="nameBox" layoutX="156.0" layoutY="35.0" prefHeight="26.0" prefWidth="386.0" />
+      <TextField fx:id="emailBox" layoutX="156.0" layoutY="194.0" prefHeight="26.0" prefWidth="386.0" />
+      <TextField fx:id="SSNBox" layoutX="156.0" layoutY="231.0" prefHeight="26.0" prefWidth="386.0" />
+      <TextArea fx:id="addressBox" layoutX="156.0" layoutY="71.0" prefHeight="110.0" prefWidth="386.0" />
+      <DatePicker fx:id="DoBBox" layoutX="156.0" layoutY="267.0" prefHeight="26.0" prefWidth="386.0" />
+      <Button layoutX="273.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
       <Button layoutX="490.0" layoutY="346.0" mnemonicParsing="false" text="Cancel" />
       <CheckBox layoutX="333.0" layoutY="314.0" mnemonicParsing="false" text="Student">
          <font>
