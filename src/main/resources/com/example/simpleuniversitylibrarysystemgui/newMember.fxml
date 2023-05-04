@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
    <children>
-      <Ellipse fill="DODGERBLUE" layoutX="276.0" layoutY="193.0" radiusX="100.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField layoutX="156.0" layoutY="35.0" prefHeight="26.0" prefWidth="386.0" />
+      <TextField layoutX="156.0" layoutY="194.0" prefHeight="26.0" prefWidth="386.0" />
+      <TextField layoutX="156.0" layoutY="231.0" prefHeight="26.0" prefWidth="386.0" />
+      <TextArea layoutX="156.0" layoutY="71.0" prefHeight="110.0" prefWidth="386.0" />
+      <DatePicker layoutX="156.0" layoutY="267.0" prefHeight="26.0" prefWidth="386.0" />
+      <Button layoutX="273.0" layoutY="346.0" mnemonicParsing="false" text="Submit" />
+      <Button layoutX="490.0" layoutY="346.0" mnemonicParsing="false" text="Cancel" />
+      <CheckBox layoutX="333.0" layoutY="314.0" mnemonicParsing="false" text="Student">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="440.0" layoutY="314.0" mnemonicParsing="false" text="External">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="216.0" layoutY="314.0" mnemonicParsing="false" text="Professor">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="37.0" layoutY="34.0" text="Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="112.0" text="Address:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="193.0" text="Email:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="230.0" text="SSN:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="266.0" text="Date of Birth:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="310.0" text="Membership Type:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
