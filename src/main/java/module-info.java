@@ -7,4 +7,6 @@ module com.example.simpleuniversitylibrarysystemgui {
 
     opens com.example.simpleuniversitylibrarysystemgui to javafx.fxml;
     exports com.example.simpleuniversitylibrarysystemgui;
+    exports libFunctions;
+    opens libFunctions to javafx.fxml;
 }
