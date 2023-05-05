@@ -8,7 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.*;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -118,16 +123,22 @@ public class HomeController {
     @FXML    CheckBox CBStudent;
     @FXML    CheckBox CBProfessor;
     @FXML    CheckBox CBExternal;
+    @FXML    TextField NSStuID;
+    @FXML    TextField NSProfID;
+    @FXML    Button NSSubmit;
+    @FXML    Button NSCancel;
 
 
     @FXML
-    protected void onNewMemberSubmit() {
+    protected void onNewMemberSubmit() throws IOException {
 
         String name=nameBox.getText();
         String email=emailBox.getText();
         String ssn=SSNBox.getText();
         String address=addressBox.getText();
         String dob= String.valueOf(DoBBox.getValue());
+        Date birthdate = new Date(DoBBox.getValue().toEpochDay());
+        SSN num = new SSN(ssn);
 
         //Check if name is empty
         if (name == null || name.length() == 0)
@@ -177,6 +188,35 @@ public class HomeController {
         {
             newMemberErrorMessage.setText("Please only select one membership type.");
             return;
+        }
+
+
+        if(CBStudent.isSelected())
+        {
+            /*
+            //This open the new student window
+            FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("newStudent.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("New-Member");
+            stage.setScene(scene);
+            stage.show(); */
+
+            int uniID = 0;
+            int profID = 0;
+
+            libFunctions.Events.createMembership(name, address, birthdate, email, num, uniID, profID);
+        }
+
+        if(CBProfessor.isSelected())
+        {
+            String department = "department";
+            int uniID = 0;
+            libFunctions.Events.createMembership(name, address, birthdate, email, department, num, uniID);
+        }
+        if(CBExternal.isSelected())
+        {
+            libFunctions.Events.createMembership(name, address, birthdate, email, num);
         }
 
         //Close window.
