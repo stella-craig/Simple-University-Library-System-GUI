@@ -41,10 +41,10 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <RadioButton layoutX="176.0" layoutY="325.0" mnemonicParsing="false" text="Book" />
-      <RadioButton layoutX="275.0" layoutY="325.0" mnemonicParsing="false" text="DVD" />
-      <RadioButton layoutX="370.0" layoutY="325.0" mnemonicParsing="false" text="Newspaper" />
-      <RadioButton layoutX="499.0" layoutY="325.0" mnemonicParsing="false" text="Journal" />
-      <Button layoutX="201.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="197.0" text="Submit" />
+      <RadioButton id="typeBook" layoutX="176.0" layoutY="325.0" mnemonicParsing="false" text="Book" />
+      <RadioButton id="typeDVD" layoutX="275.0" layoutY="325.0" mnemonicParsing="false" text="DVD" />
+      <RadioButton id="typeNewspaper" layoutX="370.0" layoutY="325.0" mnemonicParsing="false" text="Newspaper" />
+      <RadioButton id="typeJournal" layoutX="499.0" layoutY="325.0" mnemonicParsing="false" text="Journal" />
+      <Button id="submitNewItem" layoutX="201.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="197.0" text="Submit" />
    </children>
 </AnchorPane>

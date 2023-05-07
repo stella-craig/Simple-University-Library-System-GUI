@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
+   <children>
+      <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="95.0" layoutY="95.0" prefHeight="26.0" prefWidth="42.0" text="Title">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="87.0" layoutY="143.0" text="Author">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField id="itemID" layoutX="176.0" layoutY="95.0" prefHeight="26.0" prefWidth="387.0" promptText="Title..." />
+            <TextField id="itemAuthor" layoutX="176.0" layoutY="143.0" prefHeight="26.0" prefWidth="387.0" promptText="Author..." />
+            <Label layoutX="92.0" layoutY="200.0" prefHeight="26.0" prefWidth="49.0" text="ISBN">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField id="itemISBN" layoutX="177.0" layoutY="200.0" prefHeight="26.0" prefWidth="387.0" promptText="ISBN..." />
+            <Label layoutX="190.0" layoutY="25.0" text="Remove Item">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <RadioButton id="typeBook" layoutX="175.0" layoutY="250.0" mnemonicParsing="false" text="Book" />
+            <RadioButton id="typeDVD" layoutX="275.0" layoutY="250.0" mnemonicParsing="false" text="DVD" />
+            <RadioButton id="typeNewspaper" layoutX="367.0" layoutY="250.0" mnemonicParsing="false" text="Newspaper" />
+            <RadioButton id="typeJournal" layoutX="489.0" layoutY="250.0" mnemonicParsing="false" text="Journal" />
+            <Button id="submitNewItem" layoutX="227.0" layoutY="306.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="197.0" text="Submit" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

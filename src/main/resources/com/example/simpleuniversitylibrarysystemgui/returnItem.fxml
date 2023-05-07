@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="211.0" layoutY="25.0" text="Return Item">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <Label layoutX="112.0" layoutY="95.0" text="User ID">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="101.0" layoutY="187.0" text="Item Type">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="240.0" text="IBSN">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="141.0" text="Member Type">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="201.0" layoutY="96.0" prefHeight="25.0" prefWidth="284.0" />
+            <TextField layoutX="201.0" layoutY="241.0" prefHeight="25.0" prefWidth="284.0" />
+            <RadioButton layoutX="201.0" layoutY="145.0" mnemonicParsing="false" text="Professor" />
+            <RadioButton layoutX="301.0" layoutY="145.0" mnemonicParsing="false" text="Student" />
+            <RadioButton layoutX="403.0" layoutY="145.0" mnemonicParsing="false" text="External" />
+            <RadioButton layoutX="201.0" layoutY="191.0" mnemonicParsing="false" text="Book" />
+            <RadioButton layoutX="263.0" layoutY="191.0" mnemonicParsing="false" text="DVD" />
+            <RadioButton layoutX="331.0" layoutY="191.0" mnemonicParsing="false" text="Journal" />
+            <RadioButton layoutX="418.0" layoutY="191.0" mnemonicParsing="false" text="Newspaper" />
+            <Button layoutX="274.0" layoutY="313.0" mnemonicParsing="false" text="Submit" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
