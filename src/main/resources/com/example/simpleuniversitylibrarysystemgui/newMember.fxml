@@ -16,8 +16,8 @@
       <TextField id="ssn" fx:id="SSNBox" layoutX="156.0" layoutY="231.0" prefHeight="26.0" prefWidth="386.0" promptText="ssn" />
       <TextArea id="address" fx:id="addressBox" layoutX="156.0" layoutY="71.0" prefHeight="110.0" prefWidth="386.0" promptText="Address" />
       <DatePicker id="birthday" fx:id="DoBBox" layoutX="156.0" layoutY="267.0" prefHeight="26.0" prefWidth="386.0" promptText="Enter birthdate" />
-      <Button id="submit" fx:id="newMemberSubmit" layoutX="273.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
-      <Button id="cancel" fx:id="newMemberCancel" layoutX="490.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberCancel" text="Cancel" />
+      <Button id="submit" fx:id="submit" layoutX="273.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
+      <Button id="cancel" fx:id="cancel" layoutX="490.0" layoutY="346.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
       <CheckBox fx:id="CBStudent" layoutX="333.0" layoutY="314.0" mnemonicParsing="false" text="Student">
          <font>
             <Font size="14.0" />

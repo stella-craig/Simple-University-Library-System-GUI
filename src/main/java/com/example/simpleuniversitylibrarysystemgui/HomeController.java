@@ -111,22 +111,23 @@ public class HomeController {
 
 
 
-    //The following code is for the newMember.fxml window
+    //The following code is for the all of the fxml files
     @FXML    TextField nameBox;
     @FXML    TextField emailBox;
     @FXML    TextField SSNBox;
     @FXML    TextArea addressBox;
+    @FXML    TextField addressBoxField;
     @FXML    DatePicker DoBBox;
-    @FXML    Button newMemberCancel;
-    @FXML    Button newMemberSubmit;
-    @FXML    Label newMemberErrorMessage;
+    @FXML    Label errorMessage;
     @FXML    CheckBox CBStudent;
     @FXML    CheckBox CBProfessor;
     @FXML    CheckBox CBExternal;
+    @FXML    RadioButton RLibrarian;
+    @FXML    RadioButton RTechnician;
     @FXML    TextField NSStuID;
     @FXML    TextField NSProfID;
-    @FXML    Button NSSubmit;
-    @FXML    Button NSCancel;
+    @FXML    Button submit;
+    @FXML    Button cancel;
 
     //Helper functions for the different page functions
 
@@ -159,14 +160,14 @@ public class HomeController {
         if(!checkEmptyStringField(name) || !checkEmptyStringField(address) || !checkEmptyStringField(email) ||
                 !checkEmptyStringField(ssn) || !checkEmptyStringField(dob))  {
 
-            newMemberErrorMessage.setText("There is an empty field");
+            errorMessage.setText("There is an empty field");
             return;
         }
 
         //check if none of the membership types have been selected
         if(!CBStudent.isSelected() && !CBProfessor.isSelected() && !CBExternal.isSelected())
         {
-            newMemberErrorMessage.setText("Please select the membership type.");
+            errorMessage.setText("Please select the membership type.");
             return;
         }
         //check if multiple of the membership types have been selected
@@ -174,7 +175,7 @@ public class HomeController {
                 (CBStudent.isSelected() && CBExternal.isSelected()) ||
                 (CBProfessor.isSelected() && CBExternal.isSelected()))
         {
-            newMemberErrorMessage.setText("Please only select one membership type.");
+            errorMessage.setText("Please only select one membership type.");
             return;
         }
 
@@ -211,12 +212,64 @@ public class HomeController {
         }
 
         //Close window.
-        Stage stage = (Stage) newMemberSubmit.getScene().getWindow();
+        Stage stage = (Stage) submit.getScene().getWindow();
         stage.close();
     }
+
     @FXML
-    protected void onNewMemberCancel() {
-        Stage stage = (Stage) newMemberCancel.getScene().getWindow();
+    protected void onNewEmployeeSubmit() throws IOException {
+        String name=nameBox.getText();
+        String email=emailBox.getText();
+        String ssn=SSNBox.getText();
+        String address=addressBoxField.getText();
+        String dob= String.valueOf(DoBBox.getValue());
+        Date birthdate = new Date(DoBBox.getValue().toEpochDay());
+        SSN num = new SSN(ssn);
+
+        //Check if there is an empty field
+        if(!checkEmptyStringField(name) || !checkEmptyStringField(address) || !checkEmptyStringField(email) ||
+                !checkEmptyStringField(ssn) || !checkEmptyStringField(dob))  {
+
+            errorMessage.setText("There is an empty field");
+            return;
+        }
+
+        //check if none of the membership types have been selected
+        if(!RLibrarian.isSelected() && !RTechnician.isSelected())
+        {
+            errorMessage.setText("Please select the membership type.");
+            return;
+        }
+        //check if multiple of the membership types have been selected
+        if(( RLibrarian.isSelected() && RTechnician.isSelected() ))
+        {
+            errorMessage.setText("Please only select one employee type.");
+            return;
+        }
+
+
+        if(RLibrarian.isSelected())
+        {
+
+            libFunctions.Events.hireLibrarian(name, address, birthdate, email, num);
+            System.out.println("A new Librarian has been added to the system.");
+        }
+
+        if(RTechnician.isSelected()) {
+            String department = "Books";
+            libFunctions.Events.hireTechnician(name, address, birthdate, email, department, num);
+            System.out.println("A new Technician has been added to the system.");
+        }
+
+        //Close window.
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
+    }
+
+
+    @FXML
+    protected void cancel() {
+        Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
     }
 
