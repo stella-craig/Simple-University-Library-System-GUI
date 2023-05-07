@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
@@ -37,16 +36,16 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="201.0" layoutY="96.0" prefHeight="25.0" prefWidth="284.0" />
-            <TextField layoutX="201.0" layoutY="241.0" prefHeight="25.0" prefWidth="284.0" />
-            <RadioButton layoutX="201.0" layoutY="145.0" mnemonicParsing="false" text="Professor" />
-            <RadioButton layoutX="301.0" layoutY="145.0" mnemonicParsing="false" text="Student" />
-            <RadioButton layoutX="403.0" layoutY="145.0" mnemonicParsing="false" text="External" />
-            <RadioButton layoutX="201.0" layoutY="191.0" mnemonicParsing="false" text="Book" />
-            <RadioButton layoutX="263.0" layoutY="191.0" mnemonicParsing="false" text="DVD" />
-            <RadioButton layoutX="331.0" layoutY="191.0" mnemonicParsing="false" text="Journal" />
-            <RadioButton layoutX="418.0" layoutY="191.0" mnemonicParsing="false" text="Newspaper" />
-            <Button layoutX="274.0" layoutY="313.0" mnemonicParsing="false" text="Submit" />
+            <TextField id="userID" layoutX="201.0" layoutY="96.0" prefHeight="25.0" prefWidth="284.0" promptText="User ID" />
+            <TextField id="itemIBSN" layoutX="201.0" layoutY="241.0" prefHeight="25.0" prefWidth="284.0" promptText="IBSN" />
+            <RadioButton id="professor" layoutX="201.0" layoutY="145.0" mnemonicParsing="false" text="Professor" />
+            <RadioButton id="student" layoutX="301.0" layoutY="145.0" mnemonicParsing="false" text="Student" />
+            <RadioButton id="external" layoutX="403.0" layoutY="145.0" mnemonicParsing="false" text="External" />
+            <RadioButton id="book" layoutX="201.0" layoutY="191.0" mnemonicParsing="false" text="Book" />
+            <RadioButton id="dvd" layoutX="263.0" layoutY="191.0" mnemonicParsing="false" text="DVD" />
+            <RadioButton id="journal" layoutX="331.0" layoutY="191.0" mnemonicParsing="false" text="Journal" />
+            <RadioButton id="newspaper" layoutX="418.0" layoutY="191.0" mnemonicParsing="false" text="Newspaper" />
+            <Button id="submit" layoutX="274.0" layoutY="313.0" mnemonicParsing="false" text="Submit" />
          </children>
       </AnchorPane>
    </children>

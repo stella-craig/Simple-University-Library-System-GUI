@@ -128,6 +128,30 @@ public class HomeController {
     @FXML    Button NSSubmit;
     @FXML    Button NSCancel;
 
+    //Helper functions for the different page functions
+
+    // Check the name field for a value
+    protected boolean checkNameField(String name, Label label) throws IOException {
+        if (name == null || name.length() == 0)
+        {
+            label.setText("Error: Empty name.");
+            return false;
+        }
+        return true;
+    }
+
+    // Check the address field for a value
+    protected boolean checkAddressField(String name, Label label) throws IOException {
+        if (name == null || name.length() == 0)
+        {
+            label.setText("Error: Empty name.");
+            return false;
+        }
+        return true;
+    }
+    // Creating a library object and initializing the arraylists
+    Library mainStreet = new Library("Main Street Public Library", "123 main street");
+
 
     @FXML
     protected void onNewMemberSubmit() throws IOException {
@@ -141,12 +165,10 @@ public class HomeController {
         SSN num = new SSN(ssn);
 
         //Check if name is empty
-        if (name == null || name.length() == 0)
-        {
-            //System.out.println("Error: Empty name.");
-            newMemberErrorMessage.setText("Error: Empty name.");
+        if(!checkNameField(name, newMemberErrorMessage))  {
             return;
         }
+
         //check if email is empty
         if (email == null || email.length() == 0)
         {
@@ -206,6 +228,7 @@ public class HomeController {
             int profID = 0;
 
             libFunctions.Events.createMembership(name, address, birthdate, email, num, uniID, profID);
+            System.out.println("A new student member has been added to the system.");
         }
 
         if(CBProfessor.isSelected())
@@ -213,10 +236,12 @@ public class HomeController {
             String department = "department";
             int uniID = 0;
             libFunctions.Events.createMembership(name, address, birthdate, email, department, num, uniID);
+            System.out.println("A new professor member has been added to the system.");
         }
         if(CBExternal.isSelected())
         {
             libFunctions.Events.createMembership(name, address, birthdate, email, num);
+            System.out.println("A new external member has been added to the system.");
         }
 
         //Close window.

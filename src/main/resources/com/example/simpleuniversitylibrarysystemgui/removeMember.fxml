@@ -8,26 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="-6.0" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <TextField fx:id="nameBox" layoutX="137.0" layoutY="104.0" prefHeight="26.0" prefWidth="386.0" />
-            <DatePicker fx:id="DoBBox" layoutX="140.0" layoutY="157.0" prefHeight="26.0" prefWidth="386.0" />
-            <Button fx:id="newMemberSubmit" layoutX="216.0" layoutY="284.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
-            <Button fx:id="newMemberCancel" layoutX="341.0" layoutY="284.0" mnemonicParsing="false" onAction="#onNewMemberCancel" text="Cancel" />
-            <CheckBox fx:id="CBStudent" layoutX="297.0" layoutY="218.0" mnemonicParsing="false" text="Student">
+            <TextField id="name" fx:id="nameBox" layoutX="137.0" layoutY="104.0" prefHeight="26.0" prefWidth="386.0" promptText="Name" />
+            <DatePicker id="birthday" fx:id="DoBBox" layoutX="140.0" layoutY="157.0" prefHeight="26.0" prefWidth="386.0" promptText="Enter birthdate" />
+            <Button id="submit" fx:id="newMemberSubmit" layoutX="216.0" layoutY="284.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
+            <Button id="cancel" fx:id="newMemberCancel" layoutX="341.0" layoutY="284.0" mnemonicParsing="false" onAction="#onNewMemberCancel" text="Cancel" />
+            <CheckBox id="student" fx:id="CBStudent" layoutX="297.0" layoutY="218.0" mnemonicParsing="false" text="Student">
                <font>
                   <Font size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="CBExternal" layoutX="381.0" layoutY="218.0" mnemonicParsing="false" text="External">
+            <CheckBox id="external" fx:id="CBExternal" layoutX="381.0" layoutY="218.0" mnemonicParsing="false" text="External">
                <font>
                   <Font size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="CBProfessor" layoutX="191.0" layoutY="218.0" mnemonicParsing="false" text="Professor">
+            <CheckBox id="professor" fx:id="CBProfessor" layoutX="191.0" layoutY="218.0" mnemonicParsing="false" text="Professor">
                <font>
                   <Font size="14.0" />
                </font>

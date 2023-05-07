@@ -9,26 +9,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
+<AnchorPane id="student" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
    <children>
-      <TextField fx:id="nameBox" layoutX="156.0" layoutY="35.0" prefHeight="26.0" prefWidth="386.0" />
-      <TextField fx:id="emailBox" layoutX="156.0" layoutY="194.0" prefHeight="26.0" prefWidth="386.0" />
-      <TextField fx:id="SSNBox" layoutX="156.0" layoutY="231.0" prefHeight="26.0" prefWidth="386.0" />
-      <TextArea fx:id="addressBox" layoutX="156.0" layoutY="71.0" prefHeight="110.0" prefWidth="386.0" />
-      <DatePicker fx:id="DoBBox" layoutX="156.0" layoutY="267.0" prefHeight="26.0" prefWidth="386.0" />
-      <Button fx:id="newMemberSubmit" layoutX="273.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
-      <Button fx:id="newMemberCancel" layoutX="490.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberCancel" text="Cancel" />
+      <TextField id="name" fx:id="nameBox" layoutX="156.0" layoutY="35.0" prefHeight="26.0" prefWidth="386.0" promptText="Name" />
+      <TextField id="email" fx:id="emailBox" layoutX="156.0" layoutY="194.0" prefHeight="26.0" prefWidth="386.0" promptText="email" />
+      <TextField id="ssn" fx:id="SSNBox" layoutX="156.0" layoutY="231.0" prefHeight="26.0" prefWidth="386.0" promptText="ssn" />
+      <TextArea id="address" fx:id="addressBox" layoutX="156.0" layoutY="71.0" prefHeight="110.0" prefWidth="386.0" promptText="Address" />
+      <DatePicker id="birthday" fx:id="DoBBox" layoutX="156.0" layoutY="267.0" prefHeight="26.0" prefWidth="386.0" promptText="Enter birthdate" />
+      <Button id="submit" fx:id="newMemberSubmit" layoutX="273.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
+      <Button id="cancel" fx:id="newMemberCancel" layoutX="490.0" layoutY="346.0" mnemonicParsing="false" onAction="#onNewMemberCancel" text="Cancel" />
       <CheckBox fx:id="CBStudent" layoutX="333.0" layoutY="314.0" mnemonicParsing="false" text="Student">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="CBExternal" layoutX="440.0" layoutY="314.0" mnemonicParsing="false" text="External">
+      <CheckBox id="external" fx:id="CBExternal" layoutX="440.0" layoutY="314.0" mnemonicParsing="false" text="External">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="CBProfessor" layoutX="216.0" layoutY="314.0" mnemonicParsing="false" text="Professor">
+      <CheckBox id="professor" fx:id="CBProfessor" layoutX="216.0" layoutY="314.0" mnemonicParsing="false" text="Professor">
          <font>
             <Font size="14.0" />
          </font>

@@ -10,13 +10,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.simpleuniversitylibrarysystemgui.HomeController">
    <children>
-      <TextField layoutX="121.0" layoutY="40.0" prefHeight="26.0" prefWidth="280.0" />
-      <TextField layoutX="121.0" layoutY="82.0" prefHeight="57.0" prefWidth="280.0" />
-      <TextField layoutX="121.0" layoutY="159.0" prefHeight="26.0" prefWidth="280.0" />
-      <TextField layoutX="121.0" layoutY="199.0" prefHeight="26.0" prefWidth="280.0" />
-      <RadioButton layoutX="136.0" layoutY="291.0" mnemonicParsing="false" text="Librarian" />
-      <RadioButton layoutX="241.0" layoutY="291.0" mnemonicParsing="false" text="Technician" />
-      <DatePicker layoutX="121.0" layoutY="240.0" prefHeight="26.0" prefWidth="280.0" />
+      <TextField id="name" layoutX="121.0" layoutY="40.0" prefHeight="26.0" prefWidth="280.0" promptText="Name" />
+      <TextField id="address" layoutX="121.0" layoutY="82.0" prefHeight="57.0" prefWidth="280.0" promptText="Address" />
+      <TextField id="email" layoutX="121.0" layoutY="159.0" prefHeight="26.0" prefWidth="280.0" promptText="Email" />
+      <TextField id="ssn" layoutX="121.0" layoutY="199.0" prefHeight="26.0" prefWidth="280.0" promptText="SSN" />
+      <RadioButton id="librarian" layoutX="136.0" layoutY="291.0" mnemonicParsing="false" text="Librarian" />
+      <RadioButton id="technician" layoutX="241.0" layoutY="291.0" mnemonicParsing="false" text="Technician" />
+      <DatePicker layoutX="121.0" layoutY="240.0" prefHeight="26.0" prefWidth="280.0" promptText="Enter Birthdate" />
       <TextFlow layoutY="42.0" prefHeight="50.0" prefWidth="200.0">
          <children>
             <TextFlow prefHeight="20.0" prefWidth="42.0" />
