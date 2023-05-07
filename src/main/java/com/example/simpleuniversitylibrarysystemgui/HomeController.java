@@ -130,25 +130,16 @@ public class HomeController {
 
     //Helper functions for the different page functions
 
-    // Check the name field for a value
-    protected boolean checkNameField(String name, Label label) throws IOException {
-        if (name == null || name.length() == 0)
+    // Check if there are empty string fields
+    protected boolean checkEmptyStringField(String string) throws IOException {
+        if (string == null || string.length() == 0)
         {
-            label.setText("Error: Empty name.");
             return false;
         }
         return true;
     }
 
-    // Check the address field for a value
-    protected boolean checkAddressField(String name, Label label) throws IOException {
-        if (name == null || name.length() == 0)
-        {
-            label.setText("Error: Empty name.");
-            return false;
-        }
-        return true;
-    }
+
     // Creating a library object and initializing the arraylists
     Library mainStreet = new Library("Main Street Public Library", "123 main street");
 
@@ -164,39 +155,14 @@ public class HomeController {
         Date birthdate = new Date(DoBBox.getValue().toEpochDay());
         SSN num = new SSN(ssn);
 
-        //Check if name is empty
-        if(!checkNameField(name, newMemberErrorMessage))  {
+        //Check if there is an empty field
+        if(!checkEmptyStringField(name) || !checkEmptyStringField(address) || !checkEmptyStringField(email) ||
+                !checkEmptyStringField(ssn) || !checkEmptyStringField(dob))  {
+
+            newMemberErrorMessage.setText("There is an empty field");
             return;
         }
 
-        //check if email is empty
-        if (email == null || email.length() == 0)
-        {
-            //System.out.println("Error: Empty email.");
-            newMemberErrorMessage.setText("Error: Empty email.");
-            return;
-        }
-        //check if ssn is empty
-        if (ssn == null || ssn.length() == 0)
-        {
-            //System.out.println("Error: Empty SSN.");
-            newMemberErrorMessage.setText("Error: Empty SSN.");
-            return;
-        }
-        //check if address is empty
-        if (address == null || address.length() == 0)
-        {
-            //System.out.println("Error: Empty Address.");
-            newMemberErrorMessage.setText("Error: Empty Address.");
-            return;
-        }
-        //check if dob is empty
-        if (dob == null || dob.length() == 0)
-        {
-            //System.out.println("Error: Empty DoB.");
-            newMemberErrorMessage.setText("Error: Empty DoB.");
-            return;
-        }
         //check if none of the membership types have been selected
         if(!CBStudent.isSelected() && !CBProfessor.isSelected() && !CBExternal.isSelected())
         {
