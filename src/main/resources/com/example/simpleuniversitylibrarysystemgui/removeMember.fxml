@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,9 +12,8 @@
       <AnchorPane layoutX="14.0" layoutY="-6.0" prefHeight="400.0" prefWidth="600.0">
          <children>
             <TextField id="name" fx:id="nameBox" layoutX="137.0" layoutY="104.0" prefHeight="26.0" prefWidth="386.0" promptText="Name" />
-            <DatePicker id="birthday" fx:id="DoBBox" layoutX="140.0" layoutY="157.0" prefHeight="26.0" prefWidth="386.0" promptText="Enter birthdate" />
             <Button id="submit" fx:id="newMemberSubmit" layoutX="216.0" layoutY="284.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
-            <Button id="cancel" fx:id="newMemberCancel" layoutX="341.0" layoutY="284.0" mnemonicParsing="false" onAction="#onNewMemberCancel" text="Cancel" />
+            <Button id="cancel" fx:id="newMemberCancel" layoutX="341.0" layoutY="284.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
             <CheckBox id="student" fx:id="CBStudent" layoutX="297.0" layoutY="218.0" mnemonicParsing="false" text="Student">
                <font>
                   <Font size="14.0" />
@@ -36,7 +34,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="26.0" layoutY="159.0" text="Date of Birth:">
+            <Label layoutX="26.0" layoutY="159.0" text="Member ID">
                <font>
                   <Font size="18.0" />
                </font>
@@ -52,6 +50,7 @@
                   <Font size="30.0" />
                </font>
             </Label>
+            <TextField id="name" fx:id="nameBox1" layoutX="137.0" layoutY="158.0" prefHeight="26.0" prefWidth="386.0" promptText="Member ID" />
          </children>
       </AnchorPane>
    </children>

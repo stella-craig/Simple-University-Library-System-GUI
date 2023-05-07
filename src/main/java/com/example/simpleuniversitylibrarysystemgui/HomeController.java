@@ -1,5 +1,6 @@
 package com.example.simpleuniversitylibrarysystemgui;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import libFunctions.*;
 
 import javafx.application.Platform;
@@ -16,6 +17,7 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import java.util.*;
 
 public class HomeController {
 
@@ -104,6 +106,17 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    protected void onDisplayMembersButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("displayMembers.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Stage stage = new Stage();
+        stage.setTitle("Display-Members");
+        stage.setScene(scene);
+        stage.show();
+        onDisplayMembers();
+    }
     @FXML
     protected void onQuitButtonClick() {
         Platform.exit();
@@ -111,12 +124,13 @@ public class HomeController {
 
 
 
-    //The following code is for the all of the fxml files
+    //The following code is for the all fxml files
     @FXML    TextField nameBox;
     @FXML    TextField emailBox;
     @FXML    TextField SSNBox;
     @FXML    TextArea addressBox;
     @FXML    TextField addressBoxField;
+    @FXML    TextField idBox;
     @FXML    DatePicker DoBBox;
     @FXML    Label errorMessage;
     @FXML    CheckBox CBStudent;
@@ -128,6 +142,11 @@ public class HomeController {
     @FXML    TextField NSProfID;
     @FXML    Button submit;
     @FXML    Button cancel;
+
+    @FXML    TableView<Member> tableView;
+    @FXML    TableColumn<Member, String> nameColumn;
+    @FXML    TableColumn<Member, Integer> idColumn;
+    @FXML    TableColumn<Member, String> typeColumn;
 
     //Helper functions for the different page functions
 
@@ -142,9 +161,9 @@ public class HomeController {
 
 
     // Creating a library object and initializing the arraylists
-    Library mainStreet = new Library("Main Street Public Library", "123 main street");
+    Library library = Library.getInstance();
 
-
+    // Code for new member window
     @FXML
     protected void onNewMemberSubmit() throws IOException {
 
@@ -194,28 +213,34 @@ public class HomeController {
             int uniID = 0;
             int profID = 0;
 
-            libFunctions.Events.createMembership(name, address, birthdate, email, num, uniID, profID);
+            Events.createMembership(name, address, birthdate, email, num, uniID, profID);
             System.out.println("A new student member has been added to the system.");
+            System.out.println(library.getAllMembers().get(0).getMemberID());
         }
 
         if(CBProfessor.isSelected())
         {
             String department = "department";
             int uniID = 0;
-            libFunctions.Events.createMembership(name, address, birthdate, email, department, num, uniID);
+
+            Events.createMembership(name, address, birthdate, email, department, num, uniID);
             System.out.println("A new professor member has been added to the system.");
+            System.out.println(library.getAllMembers().get(0).getMemberID());
         }
         if(CBExternal.isSelected())
         {
-            libFunctions.Events.createMembership(name, address, birthdate, email, num);
+            Events.createMembership(name, address, birthdate, email, num);
             System.out.println("A new external member has been added to the system.");
+            System.out.println(library.getAllMembers().get(0).getMemberID());
         }
 
+        System.out.println(library.getAllMembers());
         //Close window.
         Stage stage = (Stage) submit.getScene().getWindow();
         stage.close();
     }
 
+    // Code for new employee window
     @FXML
     protected void onNewEmployeeSubmit() throws IOException {
         String name=nameBox.getText();
@@ -251,19 +276,70 @@ public class HomeController {
         if(RLibrarian.isSelected())
         {
 
-            libFunctions.Events.hireLibrarian(name, address, birthdate, email, num);
+            Events.hireLibrarian(name, address, birthdate, email, num);
             System.out.println("A new Librarian has been added to the system.");
         }
 
         if(RTechnician.isSelected()) {
             String department = "Books";
-            libFunctions.Events.hireTechnician(name, address, birthdate, email, department, num);
+            Events.hireTechnician(name, address, birthdate, email, department, num);
             System.out.println("A new Technician has been added to the system.");
         }
 
         //Close window.
         Stage stage = (Stage) submit.getScene().getWindow();
         stage.close();
+    }
+
+    // Code for remove member window
+    @FXML
+    protected void onRemoveMember() throws IOException {
+        String name=nameBox.getText();
+        String id=idBox.getText();
+        int intID = Integer.parseInt(id);
+        //Check if there is an empty field
+        if(!checkEmptyStringField(name) || !checkEmptyStringField(id)) {
+
+            errorMessage.setText("There is an empty field");
+            return;
+        }
+
+        //check if none of the membership types have been selected
+        if(!CBStudent.isSelected() && !CBProfessor.isSelected() && !CBExternal.isSelected())
+        {
+            errorMessage.setText("Please select the membership type.");
+            return;
+        }
+        //check if multiple of the membership types have been selected
+        if((CBStudent.isSelected() && CBProfessor.isSelected()) ||
+                (CBStudent.isSelected() && CBExternal.isSelected()) ||
+                (CBProfessor.isSelected() && CBExternal.isSelected()))
+        {
+            errorMessage.setText("Please only select one membership type.");
+            return;
+        }
+
+        Events.removeMember(name, intID);
+        System.out.println("The member " + name + " with ID: " + intID + " has been removed from the system.");
+
+        //Close window.
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
+    }
+
+    // Code for display member window
+    protected void onDisplayMembers() throws IOException {
+
+        System.out.println("Here");
+
+        System.out.println(libFunctions.Library.getAllMembers());
+
+        for( Member m: library.getAllMembers()) {
+            System.out.println("Iterating...");
+            nameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>(m.getName()));
+            idColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>(String.valueOf(m.getMemberID())));
+        }
+
     }
 
 

@@ -1,5 +1,4 @@
 package libFunctions;
-
 import java.util.ArrayList;
 
 public class Library {
@@ -7,10 +6,20 @@ public class Library {
     private String name;
     private String address;
 
+    private static final Library lib = new Library();
+
+    private Library() {
+        availableItems = new ArrayList<Item>();
+        holdItems = new ArrayList<Item>();
+        allMembers = new ArrayList<Member>();
+        allEmployees = new ArrayList<Employee>();
+    }
+
     protected static ArrayList<Item> availableItems;
     protected static ArrayList<Item> holdItems;
     protected static ArrayList<Member> allMembers;
     protected static ArrayList<Employee> allEmployees;
+
 
     public Library(String name, String address) {
         this.name = name;
@@ -32,6 +41,9 @@ public class Library {
      * Etc
      */
 
+    public static Library getInstance() {
+        return lib;
+    }
     public String getName() {
         return(this.name);
     }

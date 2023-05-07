@@ -177,6 +177,16 @@ public final class Events {
         return(professor);
     }
 
+    // Removes a member from the members list
+    public static void removeMember(String name, int ID) {
+
+        for(Member m: allMembers) {
+            if (m.getMemberID() == ID) {
+                allMembers.remove(m);
+            }
+        }
+    }
+
     // Creates a new Librarian object
     public static Librarian hireLibrarian(String name, String address, Date dob, String email, SSN ssn) {
 
