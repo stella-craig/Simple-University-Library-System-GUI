@@ -82,6 +82,9 @@ public final class Events {
                     break;
                 }
             }
+            else {
+                System.out.println("That item or user does not exist in the system.");
+            }
         }
     }
 
@@ -119,7 +122,9 @@ public final class Events {
             for(Item i: m.getBorrowedItems()) {
                 if(i.getIsbn() == bookID) {
                     m.removeBorrowedItem(i); // 2. Remove the book from the array of books checked out by the member
-
+                    holdItems.remove(i);
+                    availableItems.add(i);
+                    break;
                 }
                 else {
                     System.out.println("This member did not check that book out");
@@ -183,7 +188,24 @@ public final class Events {
         for(Member m: Library.allMembers) {
             if (m.getMemberID() == ID) {
                 allMembers.remove(m);
+                System.out.println("The member " + name + " with ID: " + ID + " has been removed from the system.");
                 break;
+            }
+            else {
+                System.out.println("There were no members with that ID");
+            }
+        }
+    }
+
+    public static void removeItem(int isbn) {
+        for(Item i: Library.getAvailableItems()) {
+            if(i.getIsbn() == isbn) {
+                availableItems.remove(i);
+                System.out.println("The item with isbn " + isbn + " has been removed from the library catalog");
+                break;
+            }
+            else {
+                System.out.println("There were no items with that isbn");
             }
         }
     }
@@ -260,12 +282,44 @@ public final class Events {
 
 
 
-
-
-
-
-
     ///////////////TIMER METHODS\\\\\\\\\\\\\\\
+
+    // Adds one day to the library
+    public static void addOneDay() {
+
+        for(Item i: holdItems) {
+            i.addDaysOut();
+
+            int days = i.getDaysOut();
+
+            if(days == 12) {
+                firstReminder();
+            }
+
+            if(days == 14) {
+                secondReminder();
+            }
+
+            if(days > 14) {
+                thirdReminder();
+            }
+
+            if(days == 28) {
+                fourthReminder();
+            }
+        }
+
+    }
+
+    // Adds seven days to the library
+    public static void addSevenDays() {
+
+    }
+
+    // Adds fourteen days to the library
+    public static void addFourteenDays() {
+
+    }
 
     // Reminds the member that the material is due in 2 days
     public static void firstReminder() {

@@ -2,6 +2,7 @@ package com.example.simpleuniversitylibrarysystemgui;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import libFunctions.*;
 
 import javafx.application.Platform;
@@ -300,7 +301,6 @@ public class HomeController {
         }
 
         Events.removeMember(name, intID);
-        System.out.println("The member " + name + " with ID: " + intID + " has been removed from the system.");
         System.out.println("Current members: " + library.getAllMembers());
 
         //Close window.
@@ -308,6 +308,7 @@ public class HomeController {
         stage.close();
     }
 
+    // Code for the new collection window
     @FXML
     protected void onNewCollectionSubmit() throws IOException {
 
@@ -380,6 +381,60 @@ public class HomeController {
         Stage stage = (Stage) submit.getScene().getWindow();
         stage.close();
 
+    }
+
+    // Code for the remove item from collection window
+    @FXML
+    protected void onRemoveItemSubmit() throws IOException {
+
+        String title = titleBox.getText();
+        String author = authorBox.getId();
+        String isbn = ISBNBox.getText();
+
+        Integer intISBN = Integer.parseInt(isbn);
+
+        Events.removeItem(intISBN);
+        System.out.println("Current items: " + library.getAvailableItems());
+
+        //Close window.
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    protected void onBorrowItem() throws IOException {
+
+        String userID = idBox.getText();
+        String isbn = ISBNBox.getText();
+
+        Integer intID = Integer.parseInt(userID);
+        Integer intISBN = Integer.parseInt(isbn);
+
+        Events.checkOut(intISBN, intID);
+        System.out.println("Available items: " + library.getAvailableItems());
+        System.out.println("Checked out items: " + library.getHoldItems());
+
+        //Close window.
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    protected void onReturnItem() throws IOException {
+
+        String userID = idBox.getText();
+        String isbn = ISBNBox.getText();
+
+        Integer intID = Integer.parseInt(userID);
+        Integer intISBN = Integer.parseInt(isbn);
+
+        Events.returnBook(intISBN, intID);
+        System.out.println("Available items: " + library.getAvailableItems());
+        System.out.println("Checked out items: " + library.getHoldItems());
+
+        //Close window.
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
     }
 
 

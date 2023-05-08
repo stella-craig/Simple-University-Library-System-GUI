@@ -13,10 +13,13 @@ public class Item
     private Date checkOutDate;
     private int isbn;
 
+    private int daysOut;
+
     public Item(double itemPrice, String itemSection, int isbn) {
         this.itemPrice = itemPrice;
         this.itemSection = itemSection;
         this.isbn = isbn;
+        this.daysOut = 0;
     }
 
     public Item(Librarian librarian, boolean ifCheckedOut, Member member, double itemPrice, String itemSection, Date checkOutDate, int isbn) {
@@ -110,6 +113,10 @@ public class Item
     {
         this.member = member;
     }
+
+    public int getDaysOut() { return daysOut; }
+    public void addDaysOut() { this.daysOut += 1; }
+    public void resetDaysOut() { this.daysOut = 0; }
 
     public String toString()
     {

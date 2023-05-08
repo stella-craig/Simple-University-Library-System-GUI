@@ -47,6 +47,7 @@ public class Newspaper extends Item
         this.publisher = publisher;
     }
 
+
     public String toString()
     {
         //Return a string with all the details of this People object.
