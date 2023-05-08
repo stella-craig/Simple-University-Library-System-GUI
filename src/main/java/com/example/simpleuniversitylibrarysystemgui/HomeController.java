@@ -28,6 +28,7 @@ import java.util.*;
 import javafx.scene.layout.VBox;
 
 public class HomeController {
+    private int currentDay = 1;
 
     //The following code is for the all fxml files
     @FXML    TextField nameBox;
@@ -167,9 +168,26 @@ public class HomeController {
 
     // Creating a library object and initializing the arraylists
     Library library = Library.getInstance();
+
+    // Adds one day to the system
+    @FXML
+    protected void oneDay() {
+
+        currentDay += 1;
+        day.setText("Day " + currentDay);
+
+        Events.addOneDay();
+        System.out.println(library.getAllMembers().get(0).getInbox());
+
+    }
+
     @FXML
     protected void onShowOverdue() {
-
+        String message = "";
+        for(Member m: library.getAllMembers()) {
+            message += m.getInbox();
+        }
+        inbox.setText(message);
     }
 
     // Code for new member window

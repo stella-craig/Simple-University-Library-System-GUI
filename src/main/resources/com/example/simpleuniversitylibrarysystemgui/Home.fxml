@@ -22,10 +22,8 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="369.0" layoutY="336.0" mnemonicParsing="false" text="1 day" />
-      <Button layoutX="425.0" layoutY="336.0" mnemonicParsing="false" text="7 days" />
-      <Button layoutX="491.0" layoutY="336.0" mnemonicParsing="false" text="14 days" />
-      <Label layoutX="513.0" layoutY="39.0" text="Day 1">
+      <Button layoutX="511.0" layoutY="336.0" mnemonicParsing="false" onAction="#oneDay" text="1 day" />
+      <Label fx:id="day" layoutX="513.0" layoutY="39.0" text="Day 1">
          <font>
             <Font size="18.0" />
          </font>

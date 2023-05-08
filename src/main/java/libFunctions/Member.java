@@ -7,6 +7,7 @@ public class Member extends People
     protected int memberID;
     protected ArrayList<Item> borrowedItems;
     protected int fineTotal;
+    protected String inbox;
 
     //Constructors:
     public Member()
@@ -64,12 +65,17 @@ public class Member extends People
         super(name, address, dob, email, ssn);
         this.memberID = 0;
     }
+
+    //////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!||||||||||||||||||||||||||||||||||||\\\\\\\\\\\\\\\\\\\\\
     public Member(String name, String address, Date dob, String email, SSN ssn, int id)
     {
         super(name, address, dob, email, ssn);
         this.memberID = id;
         this.borrowedItems = new ArrayList<Item>();
+        this.fineTotal = 0;
+        this.inbox = "";
     }
+    //////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!||||||||||||||||||||||||||||||||||||\\\\\\\\\\\\\\\\\\\\\
     public Member(String name, SSN ssn)
     {
         super(name, ssn);
@@ -117,6 +123,14 @@ public class Member extends People
     {
         //Add to fine total
         this.fineTotal = this.fineTotal + fine;
+    }
+
+    public void addInbox(String message) {
+        this.inbox = this.inbox + message;
+    }
+
+    public String getInbox() {
+        return this.inbox;
     }
     public void subtractFine(int fine)
     {

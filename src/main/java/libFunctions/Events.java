@@ -287,28 +287,40 @@ public final class Events {
     // Adds one day to the library
     public static void addOneDay() {
 
-        for(Item i: holdItems) {
-            i.addDaysOut();
+        String message1 = "";
+        String message2 = "";
+        String message3 = "";
+        String message4 = "";
 
-            int days = i.getDaysOut();
+        for (Member m : allMembers) {
+            for (Item i : m.getBorrowedItems()) {
 
-            if(days == 12) {
-                firstReminder();
-            }
+                i.addDaysOut();
+                int days = i.getDaysOut();
 
-            if(days == 14) {
-                secondReminder();
-            }
+                if (days == 12) {
+                    message1 = firstReminder(m);
+                    m.addInbox(message1);
+                }
 
-            if(days > 14) {
-                thirdReminder();
-            }
+                if (days == 14) {
+                    message2 = secondReminder(m);
+                    m.addInbox(message2);
+                }
 
-            if(days == 28) {
-                fourthReminder();
+                if (days > 14) {
+                    m.addFine(1);
+                    message3 = thirdReminder(m);
+                    m.addInbox(message3);
+                }
+
+                if (days == 28) {
+                    m.addFine(14);
+                    message4 = fourthReminder(m);
+                    m.addInbox(message4);
+                }
             }
         }
-
     }
 
     // Adds seven days to the library
@@ -322,40 +334,39 @@ public final class Events {
     }
 
     // Reminds the member that the material is due in 2 days
-    public static void firstReminder() {
+    public static String firstReminder(Member m) {
 
-        // 1. Check list of checked out books for books that have been out for 12 days
         // 2. Send message to inbox of memberID associated with those books
+        return("{[ You have items that are due in two days ]}\n");
 
         // Message states that the book is due in 2 days if it is not renewed
 
     }
 
     // Reminds the member that the material is due that day
-    public static void secondReminder() {
+    public static String secondReminder(Member m) {
 
-        // 1. Check list of checked out books for books that have been out 14 days
+
         // 2. Send message to inbox of the memberID associated with those books
-
+        return(" {[ You and an item that is due today, you can no longer renew this item. If you do not return the item, a $1 charge will be added to your account for every day the book is not returned ]}\n");
         /* Message states that the book is due that day, can no longer renew, and that a
             1$ fine will be charged to the members account for every day the book is not returned*/
 
     }
 
     // A $1 fine is added to the member's account each day after 14 days
-    public static void thirdReminder() {
+    public static String thirdReminder(Member m) {
 
-        // 1. Check list of checked out books for books that have been out 15+ days
         // 2. Aggregate a $1 fine for each day the book has been out past 14 days
-
+        return(" {[ A $1 fine has been added to your account. Please return your items ]}\n");
     }
 
     // Another email is sent to the member and a letter is mailed to the member address
-    public static void fourthReminder() {
+    public static String fourthReminder(Member m) {
 
         // 1. Check list of checked out books for books that have been out for 28 days
         // 2. Send a message to the inbox of the memberID associated with those books
-
+        return(" {[ A $14 fine has been added to your account. A letter has been sent to your address ]}\n");
         /* Message includes that a $14 fine has been added to the account and a
             physical mail has been sent to the address */
 
