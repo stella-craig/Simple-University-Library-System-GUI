@@ -110,4 +110,13 @@ public class Item
     {
         this.member = member;
     }
+
+    public String toString()
+    {
+        //Return a string with all the details of this People object.
+        return " Price: " + this.itemPrice +
+                "; Genre: " + this.itemSection +
+                "; ISBN: " + this.isbn;
+    }
+
 }

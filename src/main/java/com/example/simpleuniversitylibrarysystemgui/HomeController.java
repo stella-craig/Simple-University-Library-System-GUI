@@ -119,6 +119,11 @@ public class HomeController {
     @FXML    TextField emailBox;
     @FXML    TextField SSNBox;
     @FXML    TextArea addressBox;
+    @FXML    TextField titleBox;
+    @FXML    TextField authorBox;
+    @FXML    TextField ISBNBox;
+    @FXML    TextField genreBox;
+    @FXML    TextField priceBox;
     @FXML    TextField addressBoxField;
     @FXML    TextField idBox;
     @FXML    DatePicker DoBBox;
@@ -128,6 +133,10 @@ public class HomeController {
     @FXML    CheckBox CBExternal;
     @FXML    RadioButton RLibrarian;
     @FXML    RadioButton RTechnician;
+    @FXML    RadioButton RBook;
+    @FXML    RadioButton RDVD;
+    @FXML    RadioButton RJournal;
+    @FXML    RadioButton RNewspaper;
     @FXML    TextField NSStuID;
     @FXML    TextField NSProfID;
     @FXML    Button submit;
@@ -279,7 +288,7 @@ public class HomeController {
 
     // Code for remove member window
     @FXML
-    protected void onRemoveMember() throws IOException {
+    protected void onRemoveMemberSubmit() throws IOException {
         String name=nameBox.getText();
         String id=idBox.getText();
         int intID = Integer.parseInt(id);
@@ -297,6 +306,80 @@ public class HomeController {
         //Close window.
         Stage stage = (Stage) submit.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    protected void onNewCollectionSubmit() throws IOException {
+
+        String title = titleBox.getText();
+        String author = authorBox.getText();
+        String isbn = ISBNBox.getText();
+        String genre = genreBox.getText();
+        String price = priceBox.getText();
+        String published = String.valueOf(DoBBox.getValue());
+        Date date = new Date(DoBBox.getValue().toEpochDay());
+
+        Integer intPrice = Integer.parseInt(price);
+        Integer intISBN = Integer.parseInt(isbn);
+
+        //Check if there is an empty field
+        if(!checkEmptyStringField(title) || !checkEmptyStringField(author) || !checkEmptyStringField(genre) ||
+                !checkEmptyStringField(isbn) || !checkEmptyStringField(price))  {
+
+            errorMessage.setText("There is an empty field");
+            return;
+        }
+
+        //check if none of the membership types have been selected
+        if(!RBook.isSelected() && !RDVD.isSelected() && !RJournal.isSelected() && !RNewspaper.isSelected())
+        {
+            errorMessage.setText("Please select the membership type.");
+            return;
+        }
+        //check if multiple of the membership types have been selected
+        if( (RBook.isSelected() && RDVD.isSelected()) ||
+                (RDVD.isSelected() && RJournal.isSelected()) ||
+                (RJournal.isSelected() && RNewspaper.isSelected()) || (RBook.isSelected() && RNewspaper.isSelected()) || (RDVD.isSelected() && RNewspaper.isSelected()))
+        {
+            errorMessage.setText("Please only select one membership type.");
+            return;
+        }
+
+
+        if(RBook.isSelected())
+        {
+
+            Events.orderBook(title, author, intPrice, genre, intISBN);
+            System.out.println("A book has been added to the library");
+            System.out.println(library.getAvailableItems());
+        }
+
+        if(RDVD.isSelected())
+        {
+
+            Events.orderDVD(title, intPrice, genre, intISBN);
+            System.out.println("A DVD has been added to the library");
+            System.out.println(library.getAvailableItems());
+        }
+
+        if(RJournal.isSelected())
+        {
+            Events.orderJournal(title, date, intPrice, genre, intISBN);
+            System.out.println("A Journal has been added to the system.");
+            System.out.println(library.getAvailableItems());
+        }
+
+        if(RNewspaper.isSelected())
+        {
+            Events.orderNewspaper(title, date, intPrice, genre, intISBN);
+            System.out.println("A Newspaper has been added to the system.");
+            System.out.println(library.getAvailableItems());
+        }
+
+        //Close window.
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
+
     }
 
 
