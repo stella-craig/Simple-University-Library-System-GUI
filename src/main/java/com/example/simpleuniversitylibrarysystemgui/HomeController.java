@@ -1,4 +1,5 @@
 package com.example.simpleuniversitylibrarysystemgui;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import libFunctions.*;
@@ -106,17 +107,6 @@ public class HomeController {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    protected void onDisplayMembersButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HomeApplication.class.getResource("displayMembers.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        Stage stage = new Stage();
-        stage.setTitle("Display-Members");
-        stage.setScene(scene);
-        stage.show();
-        onDisplayMembers();
-    }
     @FXML
     protected void onQuitButtonClick() {
         Platform.exit();
@@ -142,10 +132,6 @@ public class HomeController {
     @FXML    TextField NSProfID;
     @FXML    Button submit;
     @FXML    Button cancel;
-
-    @FXML    TableView<Member> tableView;
-    @FXML    TableColumn<Member, String> nameColumn;
-    @FXML    TableColumn<Member, Integer> idColumn;
     @FXML    TableColumn<Member, String> typeColumn;
 
     //Helper functions for the different page functions
@@ -304,42 +290,13 @@ public class HomeController {
             return;
         }
 
-        //check if none of the membership types have been selected
-        if(!CBStudent.isSelected() && !CBProfessor.isSelected() && !CBExternal.isSelected())
-        {
-            errorMessage.setText("Please select the membership type.");
-            return;
-        }
-        //check if multiple of the membership types have been selected
-        if((CBStudent.isSelected() && CBProfessor.isSelected()) ||
-                (CBStudent.isSelected() && CBExternal.isSelected()) ||
-                (CBProfessor.isSelected() && CBExternal.isSelected()))
-        {
-            errorMessage.setText("Please only select one membership type.");
-            return;
-        }
-
         Events.removeMember(name, intID);
         System.out.println("The member " + name + " with ID: " + intID + " has been removed from the system.");
+        System.out.println("Current members: " + library.getAllMembers());
 
         //Close window.
         Stage stage = (Stage) submit.getScene().getWindow();
         stage.close();
-    }
-
-    // Code for display member window
-    protected void onDisplayMembers() throws IOException {
-
-        System.out.println("Here");
-
-        System.out.println(libFunctions.Library.getAllMembers());
-
-        for( Member m: library.getAllMembers()) {
-            System.out.println("Iterating...");
-            nameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>(m.getName()));
-            idColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>(String.valueOf(m.getMemberID())));
-        }
-
     }
 
 

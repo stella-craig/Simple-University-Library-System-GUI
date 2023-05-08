@@ -180,9 +180,10 @@ public final class Events {
     // Removes a member from the members list
     public static void removeMember(String name, int ID) {
 
-        for(Member m: allMembers) {
+        for(Member m: Library.allMembers) {
             if (m.getMemberID() == ID) {
                 allMembers.remove(m);
+                break;
             }
         }
     }

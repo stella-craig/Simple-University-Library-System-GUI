@@ -12,8 +12,8 @@
       <AnchorPane layoutX="14.0" layoutY="-6.0" prefHeight="400.0" prefWidth="600.0">
          <children>
             <TextField id="name" fx:id="nameBox" layoutX="137.0" layoutY="104.0" prefHeight="26.0" prefWidth="386.0" promptText="Name" />
-            <Button id="submit" fx:id="newMemberSubmit" layoutX="216.0" layoutY="284.0" mnemonicParsing="false" onAction="#onNewMemberSubmit" text="Submit" underline="true" />
-            <Button id="cancel" fx:id="newMemberCancel" layoutX="341.0" layoutY="284.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+            <Button id="submit" fx:id="submit" layoutX="216.0" layoutY="284.0" mnemonicParsing="false" onAction="#onRemoveMember" text="Submit" underline="true" />
+            <Button id="cancel" fx:id="cancel" layoutX="341.0" layoutY="284.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
             <CheckBox id="student" fx:id="CBStudent" layoutX="297.0" layoutY="218.0" mnemonicParsing="false" text="Student">
                <font>
                   <Font size="14.0" />
@@ -50,7 +50,7 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <TextField id="name" fx:id="nameBox1" layoutX="137.0" layoutY="158.0" prefHeight="26.0" prefWidth="386.0" promptText="Member ID" />
+            <TextField id="name" fx:id="idBox" layoutX="137.0" layoutY="158.0" prefHeight="26.0" prefWidth="386.0" promptText="Member ID" />
          </children>
       </AnchorPane>
    </children>
