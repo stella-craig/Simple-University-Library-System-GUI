@@ -1,7 +1,12 @@
 package com.example.simpleuniversitylibrarysystemgui;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import libFunctions.*;
 
@@ -20,8 +25,39 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.util.*;
+import javafx.scene.layout.VBox;
 
 public class HomeController {
+
+    //The following code is for the all fxml files
+    @FXML    TextField nameBox;
+    @FXML    TextField emailBox;
+    @FXML    TextField SSNBox;
+    @FXML    TextArea addressBox;
+    @FXML    TextField titleBox;
+    @FXML    TextField authorBox;
+    @FXML    TextField ISBNBox;
+    @FXML    TextField genreBox;
+    @FXML    TextField priceBox;
+    @FXML    TextField addressBoxField;
+    @FXML    TextField idBox;
+    @FXML    DatePicker DoBBox;
+    @FXML    Label errorMessage = new Label();
+    @FXML    Label inbox = new Label();;
+    @FXML    Label day = new Label();;
+    @FXML    CheckBox CBStudent;
+    @FXML    CheckBox CBProfessor;
+    @FXML    CheckBox CBExternal;
+    @FXML    RadioButton RLibrarian;
+    @FXML    RadioButton RTechnician;
+    @FXML    RadioButton RBook;
+    @FXML    RadioButton RDVD;
+    @FXML    RadioButton RJournal;
+    @FXML    RadioButton RNewspaper;
+    @FXML    TextField NSStuID;
+    @FXML    TextField NSProfID;
+    @FXML    Button submit;
+    @FXML    Button cancel;
 
 
     //This section of code just makes all the buttons on the main page work.
@@ -115,34 +151,8 @@ public class HomeController {
 
 
 
-    //The following code is for the all fxml files
-    @FXML    TextField nameBox;
-    @FXML    TextField emailBox;
-    @FXML    TextField SSNBox;
-    @FXML    TextArea addressBox;
-    @FXML    TextField titleBox;
-    @FXML    TextField authorBox;
-    @FXML    TextField ISBNBox;
-    @FXML    TextField genreBox;
-    @FXML    TextField priceBox;
-    @FXML    TextField addressBoxField;
-    @FXML    TextField idBox;
-    @FXML    DatePicker DoBBox;
-    @FXML    Label errorMessage;
-    @FXML    CheckBox CBStudent;
-    @FXML    CheckBox CBProfessor;
-    @FXML    CheckBox CBExternal;
-    @FXML    RadioButton RLibrarian;
-    @FXML    RadioButton RTechnician;
-    @FXML    RadioButton RBook;
-    @FXML    RadioButton RDVD;
-    @FXML    RadioButton RJournal;
-    @FXML    RadioButton RNewspaper;
-    @FXML    TextField NSStuID;
-    @FXML    TextField NSProfID;
-    @FXML    Button submit;
-    @FXML    Button cancel;
-    @FXML    TableColumn<Member, String> typeColumn;
+
+
 
     //Helper functions for the different page functions
 
@@ -155,9 +165,12 @@ public class HomeController {
         return true;
     }
 
-
     // Creating a library object and initializing the arraylists
     Library library = Library.getInstance();
+    @FXML
+    protected void onShowOverdue() {
+
+    }
 
     // Code for new member window
     @FXML
