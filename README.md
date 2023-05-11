@@ -1,8 +1,8 @@
 # Simple-University-Library-System-GUI
 
 ## Overview
-This is a project for our CS 3330 course at the University of Missouri. We were instructed to create an application that implemented a simple library 
-collection and checkout system with a graphics user interface (GUI).
+This is a project for our CS 3330 (Object Oriented) course at the University of Missouri. We were instructed to create an application that implemented a 
+simple library collection and checkout system with a graphics user interface (GUI).
 We used the Java language to write our program and used JavaFX and Scene Builder to help with the GUI.
 
 ## Project Members
